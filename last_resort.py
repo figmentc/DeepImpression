@@ -44,7 +44,6 @@ SIX = "PeriGilpin"
 ########################## HYPERPARAMETERS ###############################
 NUM_EPOCHS = 1000
 LEARNING_RATE = 0.01
-BATCH_SIZE = 100
 X_DIM = 1024
 Y_DIM = 6
 ##########################################################################
@@ -425,8 +424,18 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     inputs_train, target_train = zip(*c_training)
     inputs_test, target_test = zip(*c_test)
     inputs_valid, target_valid = zip(*c_val)
+    
+    inputs_train = np.array(inputs_train)
+    inputs_test  = np.array(inputs_test)
+    inputs_valid = np.array(inputs_valid)
+
+    target_train = np.array(target_train)
+    target_test  = np.array(target_test)
+    inputs_valid = np.array(inputs_valid)
 
     #inputs_train, inputs_valid, inputs_test, target_train, target_valid, target_test = LoadData('../toronto_face.npz')
+    #print(target_train.shape)
+    #raise(Exception, "Stop")
     rnd_idx = np.arange(inputs_train.shape[0])
 
     #print (target_train.shape)
@@ -439,8 +448,8 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     train_acc_list = []
     valid_acc_list = []
     num_train_cases = inputs_train.shape[0]
-    print(target_train[0].shape)            # (7,)
-    raise(Exception, "STOP")
+    #print(target_train[0].shape)            # (7,)
+    #raise(Exception, "STOP")
     if batch_size == -1:
         batch_size = num_train_cases
     num_steps = int(np.ceil(num_train_cases / batch_size))
@@ -576,8 +585,8 @@ def CheckGrad(model, forward, backward, name, x):
 def main():
     """Trains a NN."""
     
-    model_fname = 'nn_model.npz'
-    stats_fname = 'nn_stats.npz'
+    #model_fname = 'nn_model.npz'
+    #stats_fname = 'nn_stats.npz'
 
     # Hyper-parameters. Modify them if needed.
     l_eps = [0.001, 0.01, 0.1, 0.5, 1.0]
@@ -593,8 +602,8 @@ def main():
     batch_size = 100
 
     # Input-output dimensions.
-    num_inputs = 2304
-    num_outputs = 7
+    num_inputs = X_DIM
+    num_outputs = Y_DIM
 
     # Initialize model.
     model = InitNN(num_inputs, num_hiddens, num_outputs)
@@ -602,6 +611,7 @@ def main():
     # Uncomment to reload trained model here.
     # model = Load(model_fname)
 
+    """
     # Check gradient implementation.
     print('Checking gradients...')
     x = np.random.rand(10, 48 * 48) * 0.1
@@ -611,6 +621,7 @@ def main():
     CheckGrad(model, NNForward, NNBackward, 'b2', x)
     CheckGrad(model, NNForward, NNBackward, 'W1', x)
     CheckGrad(model, NNForward, NNBackward, 'b1', x)
+    """
     
     """
     print("Visualizations of weights before training ...")
@@ -625,13 +636,16 @@ def main():
     stats = Train(model, NNForward, NNBackward, NNUpdate, eps,
                   momentum, num_epochs, batch_size)
 
+    """
     print("Visualizations of weights after training ...")
     for i in range(num_hiddens[0]):
         plt.clf()
         plt.imshow(model['W1'].T[i].reshape(48, 48), cmap=plt.cm.gray)
         plt.draw()
         raw_input('Press Enter.')
+    """
 
+    """
     ## After training, show me some images where the Network miss classifies
     ## Using batch size of 1 on trained model.
     inputs_train, inputs_valid, inputs_test, target_train, target_valid, \
@@ -667,6 +681,7 @@ def main():
                 plt.draw()
                 print(train_acc)
                 raw_input('Press Enter.')
+    """
 
 
 
