@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9F141231E333177001B2035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141221E333177001B2035 /* AppDelegate.swift */; };
+		D9F141251E333177001B2035 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141241E333177001B2035 /* ViewController.swift */; };
+		D9F141281E333177001B2035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F141261E333177001B2035 /* Main.storyboard */; };
+		D9F1412B1E333177001B2035 /* FaceCreeper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9F141291E333177001B2035 /* FaceCreeper.xcdatamodeld */; };
+		D9F1412D1E333177001B2035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F1412C1E333177001B2035 /* Assets.xcassets */; };
+		D9F141301E333177001B2035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F1412E1E333177001B2035 /* LaunchScreen.storyboard */; };
+		D9F1413B1E333177001B2035 /* FaceCreeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F1413A1E333177001B2035 /* FaceCreeperTests.swift */; };
+		D9F141461E333177001B2035 /* FaceCreeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141451E333177001B2035 /* FaceCreeperUITests.swift */; };
+		D9F141541E333D3A001B2035 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141531E333D3A001B2035 /* SearchTableViewCell.swift */; };
+		D9F141561E333E49001B2035 /* SearchTableSmallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141551E333E49001B2035 /* SearchTableSmallViewCell.swift */; };
+		D9F141581E333EDC001B2035 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141571E333EDC001B2035 /* SearchTableViewController.swift */; };
+		D9F1415A1E334B13001B2035 /* NetworkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141591E334B13001B2035 /* NetworkTableViewCell.swift */; };
+		D9F1415C1E334DE5001B2035 /* NetworkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F1415B1E334DE5001B2035 /* NetworkTableView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9F141371E333177001B2035 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9F141171E333177001B2035 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9F1411E1E333177001B2035;
+			remoteInfo = FaceCreeper;
+		};
+		D9F141421E333177001B2035 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9F141171E333177001B2035 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9F1411E1E333177001B2035;
+			remoteInfo = FaceCreeper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D9F1411F1E333177001B2035 /* FaceCreeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceCreeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9F141221E333177001B2035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9F141241E333177001B2035 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9F141271E333177001B2035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9F1412A1E333177001B2035 /* FaceCreeper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FaceCreeper.xcdatamodel; sourceTree = "<group>"; };
+		D9F1412C1E333177001B2035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9F1412F1E333177001B2035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9F141311E333177001B2035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9F141361E333177001B2035 /* FaceCreeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaceCreeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9F1413A1E333177001B2035 /* FaceCreeperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCreeperTests.swift; sourceTree = "<group>"; };
+		D9F1413C1E333177001B2035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9F141411E333177001B2035 /* FaceCreeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaceCreeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9F141451E333177001B2035 /* FaceCreeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCreeperUITests.swift; sourceTree = "<group>"; };
+		D9F141471E333177001B2035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9F141531E333D3A001B2035 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		D9F141551E333E49001B2035 /* SearchTableSmallViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableSmallViewCell.swift; sourceTree = "<group>"; };
+		D9F141571E333EDC001B2035 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		D9F141591E334B13001B2035 /* NetworkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTableViewCell.swift; path = ../NetworkTableViewCell.swift; sourceTree = "<group>"; };
+		D9F1415B1E334DE5001B2035 /* NetworkTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTableView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9F1411C1E333177001B2035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9F141331E333177001B2035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9F1413E1E333177001B2035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9F141161E333177001B2035 = {
+			isa = PBXGroup;
+			children = (
+				D9F141211E333177001B2035 /* FaceCreeper */,
+				D9F141391E333177001B2035 /* FaceCreeperTests */,
+				D9F141441E333177001B2035 /* FaceCreeperUITests */,
+				D9F141201E333177001B2035 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9F141201E333177001B2035 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9F1411F1E333177001B2035 /* FaceCreeper.app */,
+				D9F141361E333177001B2035 /* FaceCreeperTests.xctest */,
+				D9F141411E333177001B2035 /* FaceCreeperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9F141211E333177001B2035 /* FaceCreeper */ = {
+			isa = PBXGroup;
+			children = (
+				D9F141591E334B13001B2035 /* NetworkTableViewCell.swift */,
+				D9F141221E333177001B2035 /* AppDelegate.swift */,
+				D9F141241E333177001B2035 /* ViewController.swift */,
+				D9F1415B1E334DE5001B2035 /* NetworkTableView.swift */,
+				D9F141261E333177001B2035 /* Main.storyboard */,
+				D9F141531E333D3A001B2035 /* SearchTableViewCell.swift */,
+				D9F141551E333E49001B2035 /* SearchTableSmallViewCell.swift */,
+				D9F141571E333EDC001B2035 /* SearchTableViewController.swift */,
+				D9F1412C1E333177001B2035 /* Assets.xcassets */,
+				D9F1412E1E333177001B2035 /* LaunchScreen.storyboard */,
+				D9F141311E333177001B2035 /* Info.plist */,
+				D9F141291E333177001B2035 /* FaceCreeper.xcdatamodeld */,
+			);
+			path = FaceCreeper;
+			sourceTree = "<group>";
+		};
+		D9F141391E333177001B2035 /* FaceCreeperTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9F1413A1E333177001B2035 /* FaceCreeperTests.swift */,
+				D9F1413C1E333177001B2035 /* Info.plist */,
+			);
+			path = FaceCreeperTests;
+			sourceTree = "<group>";
+		};
+		D9F141441E333177001B2035 /* FaceCreeperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D9F141451E333177001B2035 /* FaceCreeperUITests.swift */,
+				D9F141471E333177001B2035 /* Info.plist */,
+			);
+			path = FaceCreeperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9F1411E1E333177001B2035 /* FaceCreeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9F1414A1E333177001B2035 /* Build configuration list for PBXNativeTarget "FaceCreeper" */;
+			buildPhases = (
+				D9F1411B1E333177001B2035 /* Sources */,
+				D9F1411C1E333177001B2035 /* Frameworks */,
+				D9F1411D1E333177001B2035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FaceCreeper;
+			productName = FaceCreeper;
+			productReference = D9F1411F1E333177001B2035 /* FaceCreeper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D9F141351E333177001B2035 /* FaceCreeperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9F1414D1E333177001B2035 /* Build configuration list for PBXNativeTarget "FaceCreeperTests" */;
+			buildPhases = (
+				D9F141321E333177001B2035 /* Sources */,
+				D9F141331E333177001B2035 /* Frameworks */,
+				D9F141341E333177001B2035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9F141381E333177001B2035 /* PBXTargetDependency */,
+			);
+			name = FaceCreeperTests;
+			productName = FaceCreeperTests;
+			productReference = D9F141361E333177001B2035 /* FaceCreeperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D9F141401E333177001B2035 /* FaceCreeperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9F141501E333177001B2035 /* Build configuration list for PBXNativeTarget "FaceCreeperUITests" */;
+			buildPhases = (
+				D9F1413D1E333177001B2035 /* Sources */,
+				D9F1413E1E333177001B2035 /* Frameworks */,
+				D9F1413F1E333177001B2035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9F141431E333177001B2035 /* PBXTargetDependency */,
+			);
+			name = FaceCreeperUITests;
+			productName = FaceCreeperUITests;
+			productReference = D9F141411E333177001B2035 /* FaceCreeperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9F141171E333177001B2035 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Hackathon;
+				TargetAttributes = {
+					D9F1411E1E333177001B2035 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = QMQYG4AHK8;
+						ProvisioningStyle = Automatic;
+					};
+					D9F141351E333177001B2035 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = QMQYG4AHK8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D9F1411E1E333177001B2035;
+					};
+					D9F141401E333177001B2035 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = QMQYG4AHK8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D9F1411E1E333177001B2035;
+					};
+				};
+			};
+			buildConfigurationList = D9F1411A1E333177001B2035 /* Build configuration list for PBXProject "FaceCreeper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9F141161E333177001B2035;
+			productRefGroup = D9F141201E333177001B2035 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9F1411E1E333177001B2035 /* FaceCreeper */,
+				D9F141351E333177001B2035 /* FaceCreeperTests */,
+				D9F141401E333177001B2035 /* FaceCreeperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9F1411D1E333177001B2035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9F141301E333177001B2035 /* LaunchScreen.storyboard in Resources */,
+				D9F1412D1E333177001B2035 /* Assets.xcassets in Resources */,
+				D9F141281E333177001B2035 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9F141341E333177001B2035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9F1413F1E333177001B2035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9F1411B1E333177001B2035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9F141251E333177001B2035 /* ViewController.swift in Sources */,
+				D9F141581E333EDC001B2035 /* SearchTableViewController.swift in Sources */,
+				D9F141541E333D3A001B2035 /* SearchTableViewCell.swift in Sources */,
+				D9F1415A1E334B13001B2035 /* NetworkTableViewCell.swift in Sources */,
+				D9F1412B1E333177001B2035 /* FaceCreeper.xcdatamodeld in Sources */,
+				D9F141231E333177001B2035 /* AppDelegate.swift in Sources */,
+				D9F1415C1E334DE5001B2035 /* NetworkTableView.swift in Sources */,
+				D9F141561E333E49001B2035 /* SearchTableSmallViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9F141321E333177001B2035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9F1413B1E333177001B2035 /* FaceCreeperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9F1413D1E333177001B2035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9F141461E333177001B2035 /* FaceCreeperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9F141381E333177001B2035 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9F1411E1E333177001B2035 /* FaceCreeper */;
+			targetProxy = D9F141371E333177001B2035 /* PBXContainerItemProxy */;
+		};
+		D9F141431E333177001B2035 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9F1411E1E333177001B2035 /* FaceCreeper */;
+			targetProxy = D9F141421E333177001B2035 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D9F141261E333177001B2035 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9F141271E333177001B2035 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D9F1412E1E333177001B2035 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9F1412F1E333177001B2035 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9F141481E333177001B2035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D9F141491E333177001B2035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9F1414B1E333177001B2035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QMQYG4AHK8;
+				INFOPLIST_FILE = FaceCreeper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hackathon.FaceCreeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D9F1414C1E333177001B2035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QMQYG4AHK8;
+				INFOPLIST_FILE = FaceCreeper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hackathon.FaceCreeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D9F1414E1E333177001B2035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = QMQYG4AHK8;
+				INFOPLIST_FILE = FaceCreeperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hackathon.FaceCreeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FaceCreeper.app/FaceCreeper";
+			};
+			name = Debug;
+		};
+		D9F1414F1E333177001B2035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = QMQYG4AHK8;
+				INFOPLIST_FILE = FaceCreeperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hackathon.FaceCreeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FaceCreeper.app/FaceCreeper";
+			};
+			name = Release;
+		};
+		D9F141511E333177001B2035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = QMQYG4AHK8;
+				INFOPLIST_FILE = FaceCreeperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hackathon.FaceCreeperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = FaceCreeper;
+			};
+			name = Debug;
+		};
+		D9F141521E333177001B2035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = QMQYG4AHK8;
+				INFOPLIST_FILE = FaceCreeperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hackathon.FaceCreeperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = FaceCreeper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9F1411A1E333177001B2035 /* Build configuration list for PBXProject "FaceCreeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9F141481E333177001B2035 /* Debug */,
+				D9F141491E333177001B2035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9F1414A1E333177001B2035 /* Build configuration list for PBXNativeTarget "FaceCreeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9F1414B1E333177001B2035 /* Debug */,
+				D9F1414C1E333177001B2035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D9F1414D1E333177001B2035 /* Build configuration list for PBXNativeTarget "FaceCreeperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9F1414E1E333177001B2035 /* Debug */,
+				D9F1414F1E333177001B2035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D9F141501E333177001B2035 /* Build configuration list for PBXNativeTarget "FaceCreeperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9F141511E333177001B2035 /* Debug */,
+				D9F141521E333177001B2035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D9F141291E333177001B2035 /* FaceCreeper.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D9F1412A1E333177001B2035 /* FaceCreeper.xcdatamodel */,
+			);
+			currentVersion = D9F1412A1E333177001B2035 /* FaceCreeper.xcdatamodel */;
+			path = FaceCreeper.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D9F141171E333177001B2035 /* Project object */;
+}
