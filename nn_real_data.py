@@ -208,76 +208,121 @@ def uncouple(list):
 #print one_hots(6, 6)
 
 images1 = get_all_images(CROPPED_PATH + sep + ONE)
+images1 = compress(images1)
 shuffle(images1)
-y1 = one_hots(1, 6)
-x_y(images1, y1)
+y1 = np.array(one_hots(1, 6))
+#images1 = x_y(images1, y1)
 image1_test  = images1[0:10]
 image1_val   = images1[10:20]
 image1_train = images1[20:]
+image1_test_target = [y1] * 10
+image1_val_target = [y1] * 10
+image1_train_target = [y1] * len(image1_train)
 
 images2 = get_all_images(CROPPED_PATH + sep + TWO)
+images2 = compress(images2)
 shuffle(images2)
-y2 = one_hots(2, 6)
-x_y(images2, y2)
+y2 = np.array(one_hots(2, 6))
+#images2 = x_y(images2, y2)
 image2_test  = images2[0:10]
 image2_val   = images2[10:20]
 image2_train = images2[20:]
+image2_test_target = [y1] * 10
+image2_val_target = [y1] * 10
+image2_train_target = [y1] * len(image1_train)
 
 images3 = get_all_images(CROPPED_PATH + sep + THREE)
+images3 = compress(images3)
 shuffle(images3)
-y3 = one_hots(3, 6)
-x_y(images3, y3)
+y3 = np.array(one_hots(3, 6))
+#images2 = x_y(images3, y3)
 image3_test  = images3[0:10]
 image3_val   = images3[10:20]
 image3_train = images3[20:]
+image3_test_target = [y1] * 10
+image3_val_target = [y1] * 10
+image3_train_target = [y1] * len(image1_train)
 
 images4 = get_all_images(CROPPED_PATH + sep + FOUR)
+images4 = compress(images4)
 shuffle(images4)
-y4 = one_hots(4, 6)
-x_y(images4, y4)
+y4 = np.array(one_hots(4, 6))
+#images4 = x_y(images4, y4)
 image4_test  = images4[0:10]
 image4_val   = images4[10:20]
 image4_train = images4[20:]
+image4_test_target = [y1] * 10
+image4_val_target = [y1] * 10
+image4_train_target = [y1] * len(image1_train)
 
 images5 = get_all_images(CROPPED_PATH + sep + FIVE)
+images5 = compress(images5)
 shuffle(images5)
-y5 = one_hots(5, 6)
-x_y(images5, y5)
+y5 = np.array(one_hots(5, 6))
+#images5 = x_y(images5, y5)
 image5_test  = images5[0:10]
 image5_val   = images5[10:20]
 image5_train = images5[20:]
+image5_test_target = [y1] * 10
+image5_val_target = [y1] * 10
+image5_train_target = [y1] * len(image1_train)
 
 images6 = get_all_images(CROPPED_PATH + sep + SIX)
+images6 = compress(images6)
 shuffle(images6)
-y6 = one_hots(6, 6)
-x_y(images6, y6)
+y6 = np.array(one_hots(6, 6))
+#images6 = x_y(images6, y6)
 image6_test  = images6[0:10]
 image6_val   = images6[10:20]
 image6_train = images6[20:]
+image6_test_target = [y1] * 10
+image6_val_target = [y1] * 10
+image6_train_target = [y1] * len(image1_train)
+
+#plt.imshow(decompress(image6_test)[0])
+#plt.show()
 
 training_images = big_data(image1_train, image2_train, image3_train, image4_train, image5_train, image6_train)
 test_images     = big_data(image1_test, image2_test, image3_test, image4_test, image5_test, image6_test)
 val_images      = big_data(image1_val, image2_val, image3_val, image4_val, image5_val, image6_val)
 
-train_inputs, train_targets = uncouple(training_images)
-val_inputs, val_targets = uncouple(val_images)
-test_inputs, test_targets = uncouple(test_images)
+training_images_targets = big_data(image1_train_target, image2_train_target, image3_train_target, image4_train_target, image5_train_target, image6_train_target)
+test_images_targets     = big_data(image1_test_target, image2_test_target, image3_test_target, image4_test_target, image5_test_target, image6_test_target)
+val_images_targets      = big_data(image1_val_target, image2_val_target, image3_val_target, image4_val_target, image5_val_target, image6_val_target)
+
+c_training = list(zip(training_images, training_images_targets))
+c_test     = list(zip(test_images, test_images_targets))
+c_val      = list(zip(val_images, val_images_targets))
+
+random.shuffle(c_training)
+random.shuffle(c_test)
+random.shuffle(c_val)
+
+inputs_train, target_train = zip(*c_training)
+inputs_test, target_test = zip(*c_test)
+inputs_valid, target_valid = zip(*c_val)
+
+inputs_train = np.array(inputs_train)
+inputs_test  = np.array(inputs_test)
+inputs_valid = np.array(inputs_valid)
+
+target_train = np.array(target_train)
+target_test  = np.array(target_test)
+inputs_valid = np.array(inputs_valid)
 
 num_train_cases = len(training_images)
 
-
+#train_inputs = compress(train_inputs)
+#test_inputs  = compress(test_inputs)
+#val_inputs   = compress(val_inputs)
 #num_batches = len(training_images) / BATCH_SIZE
 batches = []
 for idx in range(0, num_train_cases, BATCH_SIZE):
-    batch = training_images[idx : idx + batch_size]
+    batch = training_images[idx : idx + BATCH_SIZE]
     batches.append(batch)
 
 #plt.imshow(training_images[0])
 #plt.show()
-
-training_images = compress(training_images)
-test_images     = compress(test_images)
-val_images      = compress(val_images)
 
 #plt.imshow(decompress(training_images)[0])
 #plt.show()
@@ -341,11 +386,11 @@ l2_BN = tf.nn.sigmoid(BN2)
 
 # Softmax
 w3 = tf.Variable(w3_initial)
-b3 = tf.Variable(tf.zeros([10]))
+b3 = tf.Variable(tf.zeros([Y_DIM]))
 y  = tf.nn.softmax(tf.matmul(l2,w3)+b3)
 
 w3_BN = tf.Variable(w3_initial)
-b3_BN = tf.Variable(tf.zeros([10]))
+b3_BN = tf.Variable(tf.zeros([Y_DIM]))
 y_BN  = tf.nn.softmax(tf.matmul(l2_BN,w3_BN)+b3_BN)
 
 # Loss, optimizer and predictions
