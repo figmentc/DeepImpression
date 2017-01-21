@@ -20,7 +20,7 @@ app.post('/process', type, function(req, res){
   var options = {
     args: [path]
   };
-  PythonShell.run('nn_real_data.py', options, function(err, results){
+  PythonShell.run('test.py', options, function(err, results){
     if (err) throw err;
     console.log(results);
     return res.send(JSON.stringify(results));

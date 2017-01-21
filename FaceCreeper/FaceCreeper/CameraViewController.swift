@@ -161,13 +161,15 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
             indicator.layer.borderWidth = 2
             indicator.layer.borderColor = UIColor.red.cgColor
             previewImageView.addSubview(indicator)
+            UploadRequest(image:image)
+
             
         }
     }
     
     func UploadRequest(image:UIImage)
     {
-        let url = NSURL(string: "http://www.kaleidosblog.com/tutorial/upload.php")
+        let url = NSURL(string: "http://013bac77.ngrok.io/process")
         
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "POST"
@@ -190,13 +192,13 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
         //define the data post parameter
         
         body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
-        body.append("Content-Disposition:form-data; name=\"test\"\r\n\r\n".data(using: String.Encoding.utf8)!)
-        body.append("hi\r\n".data(using: String.Encoding.utf8)!)
+        body.append("Content-Disposition:form-data; name=\"dimensions\"\r\n\r\n".data(using: String.Encoding.utf8)!)
+        body.append("Austin Was Here\r\n".data(using: String.Encoding.utf8)!)
         
         
         
         body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
-        body.append("Content-Disposition:form-data; name=\"file\"; filename=\"\(fname)\"\r\n".data(using: String.Encoding.utf8)!)
+        body.append("Content-Disposition:form-data; name=\"img\"; filename=\"\(fname)\"\r\n".data(using: String.Encoding.utf8)!)
         body.append("Content-Type: \(mimetype)\r\n\r\n".data(using: String.Encoding.utf8)!)
         body.append(image_data!)
         body.append("\r\n".data(using: String.Encoding.utf8)!)
@@ -228,6 +230,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
             
         }
         
+        print("FINISHED HTTP CALL")
         task.resume()
         
         

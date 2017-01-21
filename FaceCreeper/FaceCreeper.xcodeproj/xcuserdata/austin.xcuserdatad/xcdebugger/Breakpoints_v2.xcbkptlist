@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceCreeper/CameraViewController.swift"
-            timestampString = "506724245.045496"
+            timestampString = "506726094.622877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "UploadRequest(image:)"
             landmarkType = "7">
          </BreakpointContent>
