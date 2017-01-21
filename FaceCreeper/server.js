@@ -15,8 +15,10 @@ app.use(bodyParser.json());
 
 app.post('/process', type, function(req, res){
   console.log(req.file);
+  var encoded_filename = req.file.filename;
+  var path = 'upload/' + encoded_filename;
   var options = {
-    args: [img]
+    args: [path]
   };
   PythonShell.run('nn_real_data.py', options, function(err, results){
     if (err) throw err;
