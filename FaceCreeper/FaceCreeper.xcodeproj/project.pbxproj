@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D934B9491E339BA100E4B850 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934B9481E339BA100E4B850 /* CameraViewController.swift */; };
+		D934B94B1E33F2E500E4B850 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934B94A1E33F2E500E4B850 /* LandingViewController.swift */; };
 		D9F141231E333177001B2035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141221E333177001B2035 /* AppDelegate.swift */; };
 		D9F141251E333177001B2035 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F141241E333177001B2035 /* ViewController.swift */; };
 		D9F141281E333177001B2035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F141261E333177001B2035 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D934B9481E339BA100E4B850 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		D934B94A1E33F2E500E4B850 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		D9F1411F1E333177001B2035 /* FaceCreeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceCreeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F141221E333177001B2035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9F141241E333177001B2035 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,11 +113,13 @@
 		D9F141211E333177001B2035 /* FaceCreeper */ = {
 			isa = PBXGroup;
 			children = (
+				D934B9481E339BA100E4B850 /* CameraViewController.swift */,
 				D9F141591E334B13001B2035 /* NetworkTableViewCell.swift */,
 				D9F141221E333177001B2035 /* AppDelegate.swift */,
 				D9F141241E333177001B2035 /* ViewController.swift */,
 				D9F1415B1E334DE5001B2035 /* NetworkTableView.swift */,
 				D9F141261E333177001B2035 /* Main.storyboard */,
+				D934B94A1E33F2E500E4B850 /* LandingViewController.swift */,
 				D9F141531E333D3A001B2035 /* SearchTableViewCell.swift */,
 				D9F141551E333E49001B2035 /* SearchTableSmallViewCell.swift */,
 				D9F141571E333EDC001B2035 /* SearchTableViewController.swift */,
@@ -281,12 +287,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9F141251E333177001B2035 /* ViewController.swift in Sources */,
+				D934B9491E339BA100E4B850 /* CameraViewController.swift in Sources */,
 				D9F141581E333EDC001B2035 /* SearchTableViewController.swift in Sources */,
 				D9F141541E333D3A001B2035 /* SearchTableViewCell.swift in Sources */,
 				D9F1415A1E334B13001B2035 /* NetworkTableViewCell.swift in Sources */,
 				D9F1412B1E333177001B2035 /* FaceCreeper.xcdatamodeld in Sources */,
 				D9F141231E333177001B2035 /* AppDelegate.swift in Sources */,
 				D9F1415C1E334DE5001B2035 /* NetworkTableView.swift in Sources */,
+				D934B94B1E33F2E500E4B850 /* LandingViewController.swift in Sources */,
 				D9F141561E333E49001B2035 /* SearchTableSmallViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,6 +546,7 @@
 				D9F1414C1E333177001B2035 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9F1414D1E333177001B2035 /* Build configuration list for PBXNativeTarget "FaceCreeperTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +555,7 @@
 				D9F1414F1E333177001B2035 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9F141501E333177001B2035 /* Build configuration list for PBXNativeTarget "FaceCreeperUITests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +564,7 @@
 				D9F141521E333177001B2035 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

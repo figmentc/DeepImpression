@@ -57,7 +57,7 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         let detectionAccuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: detectionAccuracy)
-        let foundFaces = faceDetector?.features(in: detectedImage)
+        let foundFaces = faceDetector?.features(in: detectedImage, options: [CIDetectorImageOrientation: 5])
         
         
         // For converting the Core Image Coordinates to UIView Coordinates
@@ -91,12 +91,14 @@ class ViewController: UIViewController,UINavigationControllerDelegate, UIImagePi
             pickedImge.addSubview(indicator)
             
             
-//            let cgImage = image.cgImage
-//            let croppedCGImage: CGImage = cgImage!.cropping(to: newBounds)!
-//            let uiImage = UIImage(cgImage: croppedCGImage)
+            let cgImage = image.cgImage
+//            let rect = CGRect(x: face.bounds.minX, y: face.bounds.maxY, width: face.bounds.width, height: face.bounds.height)
+            let croppedCGImage: CGImage = cgImage!.cropping(to: face.bounds)!
+            
+            let uiImage = UIImage(cgImage: croppedCGImage)
 //
 //        
-//            pickedImge.image = uiImage;
+            pickedImge.image = uiImage;
             
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
