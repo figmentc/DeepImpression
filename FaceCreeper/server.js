@@ -15,17 +15,17 @@ app.use(bodyParser.json());
 
 app.post('/process', type, function(req, res){
   console.log(req.file);
+
   var encoded_filename = req.file.filename;
   var path = 'upload/' + encoded_filename;
-  var options = {
-    args: [path]
-  };
+
+  var dimensions = req.body.dimensions;
+
   PythonShell.run('test.py', options, function(err, results){
     if (err) throw err;
     console.log(results);
     return res.send(JSON.stringify(results));
   });
 });
-
 app.listen(3000);
 console.log("Listening on port 3000");
