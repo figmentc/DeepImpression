@@ -44,9 +44,10 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
             labelView.text = "Michael Varton"
         case 5:
             self.imageView.image = UIImage(named: "Peri")
-            labelView
+            labelView.text = "Peri Gilpin"
         default:
             self.imageView.image = UIImage(named: "Melissa")
+            labelView.text = "Melissa Ng"
         }
         // Do any additional setup after loading the view.
     }
