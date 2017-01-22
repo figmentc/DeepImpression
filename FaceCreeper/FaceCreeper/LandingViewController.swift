@@ -26,35 +26,35 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         switch (id){
         case -1:
-            self.imageView.image = UIImage(named: "Melissa")
+            self.imageView.image = UIImage(named: "melissa")
             labelView.text = "Melissa Ng"
             descrView.text = "21, Female, Iron(FE) Designer, UX Research Assistant"
         case 0:
-            self.imageView.image = UIImage(named: "Angie")
+            self.imageView.image = UIImage(named: "angie")
             labelView.text = "Angie Harmon"
             descrView.text = "44, Female, Actress"
         case 1:
-            self.imageView.image = UIImage(named: "Daniel")
+            self.imageView.image = UIImage(named: "daniel")
             labelView.text = "Daniel Radcliffe"
             descrView.text = "27, Male, Actor"
         case 2:
-            self.imageView.image = UIImage(named: "Samir")
+            self.imageView.image = UIImage(named: "samie")
             labelView.text = "Farhan Samir"
             descrView.text = "21, Male, Software Developer"
         case 3:
-            self.imageView.image = UIImage(named: "Loraine")
+            self.imageView.image = UIImage(named: "lorainne")
             labelView.text = "Lorraine Bracco"
             descrView.text = "62, Female, Actress"
         case 4:
-            self.imageView.image = UIImage(named: "Michael")
+            self.imageView.image = UIImage(named: "michael")
             labelView.text = "Michael Varton"
             descrView.text = "48, Male, Actor"
         case 5:
-            self.imageView.image = UIImage(named: "Peri")
+            self.imageView.image = UIImage(named: "peri")
             labelView.text = "Peri Gilpin"
             descrView.text = "55, Male, Actor"
         default:
-            self.imageView.image = UIImage(named: "Melissa")
+            self.imageView.image = UIImage(named: "melissa")
             labelView.text = "Melissa Ng"
             descrView.text = "21, Female, Iron(FE) Designer, UX Research Assistant"
         }

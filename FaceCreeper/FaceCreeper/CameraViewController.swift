@@ -239,7 +239,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
             
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LandingViewController") as! LandingViewController
             nextViewController.id  = Int((dataString?.intValue)!)
-        
+            //nextViewController.id  = 2
             self.present(nextViewController, animated:true, completion:nil)
 
         }

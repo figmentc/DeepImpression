@@ -33,12 +33,12 @@ app.post('/process', type, function(req, res){
     var nn_options = {
       args: [cropped_img]
     }
-    res.sendStatus(200)
-    // PythonShell.run('.py', nn_options, function(err, results){
-    //   if (err) throw err;
-    //   console.log(results);
-    //   return res.send(JSON.stringify(results));
-    // });
+    PythonShell.run('last_resort.py', nn_options, function(err, results){
+      if (err) throw err;
+      console.log("RESULTS: " + results);
+      res.sendStatus(results)
+      return res.send(JSON.stringify(results));
+    });
   });
 });
 app.listen(3000);
