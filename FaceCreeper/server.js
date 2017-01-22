@@ -21,10 +21,22 @@ app.post('/process', type, function(req, res){
 
   var dimensions = req.body.dimensions;
 
-  PythonShell.run('test.py', options, function(err, results){
+  var crop_options = {
+    args: [dimensions, path]
+  };
+
+
+  PythonShell.run('crop_file.py', crop_options, function(err, cropped_img){
     if (err) throw err;
-    console.log(results);
-    return res.send(JSON.stringify(results));
+    console.log(cropped_img);
+    var nn_options = {
+      args: [cropped_img]
+    }
+    PythonShell.run('.py', nn_options, function(err, results){
+      if (err) throw err;
+      console.log(results);
+      return res.send(JSON.stringify(results));
+    });
   });
 });
 app.listen(3000);
