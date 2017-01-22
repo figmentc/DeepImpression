@@ -23,8 +23,6 @@ filepath = sys.argv[1]
 os.rename(filepath, filepath+".png")
 im = array(imread(filepath+".png"))
 # print type(im)
-print(im)
-print(sys.argv[2])
 cropDim = map(int, map(float, sys.argv[2].split(',')))
 # print cropDim
 # print im

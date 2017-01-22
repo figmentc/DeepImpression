@@ -36,7 +36,7 @@ app.post('/process', type, function(req, res){
     PythonShell.run('last_resort.py', nn_options, function(err, results){
       if (err) throw err;
       console.log("RESULTS: " + results);
-      res.sendStatus(results)
+      // res.sendStatus(results)
       return res.send(JSON.stringify(results));
     });
   });

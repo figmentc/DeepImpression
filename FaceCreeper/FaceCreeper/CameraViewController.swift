@@ -228,6 +228,10 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
             
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             
+            
+            
+
+            
            
             let indicator = UIView(frame: newBounds)
             indicator.backgroundColor = UIColor.clear
