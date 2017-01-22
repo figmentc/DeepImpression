@@ -60,18 +60,21 @@ def get_all_images(path):
 
 def big_data(images1, images2, images3, images4, images5, images6):
     big_data = []
-    for thing in images1:
-        big_data.append(thing)
-    for thing in images2:
-        big_data.append(thing)
-    for thing in images3:
-        big_data.append(thing)
-    for thing in images4:
-        big_data.append(thing)
-    for thing in images5:
-        big_data.append(thing)
-    for thing in images6:
-        big_data.append(thing)
+    for thing1 in images1:
+        big_data.append(thing1)
+    for thing2 in images2:
+        big_data.append(thing2)
+    for thing3 in images3:
+        big_data.append(thing3)
+    for thing4 in images4:
+        big_data.append(thing4)
+    for thing5 in images5:
+        big_data.append(thing5)
+    for thing6 in images6:
+        big_data.append(thing6)
+
+    
+    
     return big_data
 
 def compress(images):
@@ -331,17 +334,20 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     #print one_hots(6, 6)
 
     images1 = get_all_images(CROPPED_PATH + sep + ONE)
+    plt.imshow(images1[0])
+    plt.show()
     images1 = compress(images1)
     shuffle(images1)
     y1 = np.array(one_hots(1, 6))
-    #images1 = x_y(images1, y1)
     image1_test  = images1[0:10]
     image1_val   = images1[10:20]
     image1_train = images1[20:]
     image1_test_target = [y1] * 10
     image1_val_target = [y1] * 10
     image1_train_target = [y1] * len(image1_train)
-
+    
+    print("IMAGE1 TARGET ", image1_train_target)
+    
     images2 = get_all_images(CROPPED_PATH + sep + TWO)
     images2 = compress(images2)
     shuffle(images2)
@@ -350,9 +356,11 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image2_test  = images2[0:10]
     image2_val   = images2[10:20]
     image2_train = images2[20:]
-    image2_test_target = [y1] * 10
-    image2_val_target = [y1] * 10
-    image2_train_target = [y1] * len(image1_train)
+    image2_test_target = [y2] * 10
+    image2_val_target = [y2] * 10
+    image2_train_target = [y2] * len(image2_train)
+    
+    print("IMAGE2 TARGET ", image2_train_target)
 
     images3 = get_all_images(CROPPED_PATH + sep + THREE)
     images3 = compress(images3)
@@ -362,9 +370,11 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image3_test  = images3[0:10]
     image3_val   = images3[10:20]
     image3_train = images3[20:]
-    image3_test_target = [y1] * 10
-    image3_val_target = [y1] * 10
-    image3_train_target = [y1] * len(image1_train)
+    image3_test_target = [y3] * 10
+    image3_val_target = [y3] * 10
+    image3_train_target = [y3] * len(image3_train)
+    
+    print("IMAGE3 TARGET ", image3_train_target)
 
     images4 = get_all_images(CROPPED_PATH + sep + FOUR)
     images4 = compress(images4)
@@ -374,9 +384,9 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image4_test  = images4[0:10]
     image4_val   = images4[10:20]
     image4_train = images4[20:]
-    image4_test_target = [y1] * 10
-    image4_val_target = [y1] * 10
-    image4_train_target = [y1] * len(image1_train)
+    image4_test_target = [y4] * 10
+    image4_val_target = [y4] * 10
+    image4_train_target = [y4] * len(image4_train)
 
     images5 = get_all_images(CROPPED_PATH + sep + FIVE)
     images5 = compress(images5)
@@ -386,9 +396,9 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image5_test  = images5[0:10]
     image5_val   = images5[10:20]
     image5_train = images5[20:]
-    image5_test_target = [y1] * 10
-    image5_val_target = [y1] * 10
-    image5_train_target = [y1] * len(image1_train)
+    image5_test_target = [y5] * 10
+    image5_val_target = [y5] * 10
+    image5_train_target = [y5] * len(image5_train)
 
     images6 = get_all_images(CROPPED_PATH + sep + SIX)
     images6 = compress(images6)
@@ -398,13 +408,14 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image6_test  = images6[0:10]
     image6_val   = images6[10:20]
     image6_train = images6[20:]
-    image6_test_target = [y1] * 10
-    image6_val_target = [y1] * 10
-    image6_train_target = [y1] * len(image1_train)
+    image6_test_target = [y6] * 10
+    image6_val_target = [y6] * 10
+    image6_train_target = [y6] * len(image6_train)
+    
 
     #plt.imshow(decompress(image6_test)[0])
     #plt.show()
-
+    
     training_images = big_data(image1_train, image2_train, image3_train, image4_train, image5_train, image6_train)
     test_images     = big_data(image1_test, image2_test, image3_test, image4_test, image5_test, image6_test)
     val_images      = big_data(image1_val, image2_val, image3_val, image4_val, image5_val, image6_val)
@@ -412,7 +423,18 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     training_images_targets = big_data(image1_train_target, image2_train_target, image3_train_target, image4_train_target, image5_train_target, image6_train_target)
     test_images_targets     = big_data(image1_test_target, image2_test_target, image3_test_target, image4_test_target, image5_test_target, image6_test_target)
     val_images_targets      = big_data(image1_val_target, image2_val_target, image3_val_target, image4_val_target, image5_val_target, image6_val_target)
+    
+    # This is for testing
+    inputs_train = big_data(image1_train, image2_train, image3_train, image4_train, image5_train, image6_train)
+    inputs_test     = big_data(image1_test, image2_test, image3_test, image4_test, image5_test, image6_test)
+    inputs_valid      = big_data(image1_val, image2_val, image3_val, image4_val, image5_val, image6_val)
+    
+    
+    target_train = big_data(image1_train_target, image2_train_target, image3_train_target, image4_train_target, image5_train_target, image6_train_target)
+    target_test     = big_data(image1_test_target, image2_test_target, image3_test_target, image4_test_target, image5_test_target, image6_test_target)
+    target_valid      = big_data(image1_val_target, image2_val_target, image3_val_target, image4_val_target, image5_val_target, image6_val_target)
 
+    """
     c_training = list(zip(training_images, training_images_targets))
     c_test     = list(zip(test_images, test_images_targets))
     c_val      = list(zip(val_images, val_images_targets))
@@ -424,6 +446,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     inputs_train, target_train = zip(*c_training)
     inputs_test, target_test = zip(*c_test)
     inputs_valid, target_valid = zip(*c_val)
+    """
     
     inputs_train = np.array(inputs_train)
     inputs_test  = np.array(inputs_test)
@@ -431,30 +454,28 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
 
     target_train = np.array(target_train)
     target_test  = np.array(target_test)
-    inputs_valid = np.array(inputs_valid)
+    target_valid = np.array(target_valid)
 
-    #inputs_train, inputs_valid, inputs_test, target_train, target_valid, target_test = LoadData('../toronto_face.npz')
+    #print(inputs_train.shape)
+    #print(target_train)
+
+    inputs_train, inputs_valid, inputs_test, target_train, target_valid, target_test = LoadData('../toronto_face.npz')
     #print(target_train.shape)
     #raise(Exception, "Stop")
     rnd_idx = np.arange(inputs_train.shape[0])
-
-    #print (target_train.shape)
-    #print (target_train)
-    #print (target_train[0])
-    #raise Exception("STOP!")
 
     train_ce_list = []
     valid_ce_list = []
     train_acc_list = []
     valid_acc_list = []
     num_train_cases = inputs_train.shape[0]
-    #print(target_train[0].shape)            # (7,)
-    #raise(Exception, "STOP")
     if batch_size == -1:
         batch_size = num_train_cases
     num_steps = int(np.ceil(num_train_cases / batch_size))
     for epoch in range(num_epochs):
         np.random.shuffle(rnd_idx)
+        #print(inputs_train.shape)
+        #raise(Expection, "Stop")
         inputs_train = inputs_train[rnd_idx]
         target_train = target_train[rnd_idx]
         for step in range(num_steps):
@@ -521,6 +542,8 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     }
 
     return model, stats
+
+
 
 
 def Evaluate(inputs, target, model, forward, batch_size=-1):
@@ -602,8 +625,8 @@ def main():
     batch_size = 100
 
     # Input-output dimensions.
-    num_inputs = X_DIM
-    num_outputs = Y_DIM
+    num_inputs = 784 #X_DIM
+    num_outputs = 7 #Y_DIM
 
     # Initialize model.
     model = InitNN(num_inputs, num_hiddens, num_outputs)
