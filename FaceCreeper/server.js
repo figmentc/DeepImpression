@@ -37,7 +37,7 @@ app.post('/process', type, function(req, res){
       if (err) throw err;
       console.log("RESULTS: " + results);
       // res.sendStatus(results)
-      return res.send(JSON.stringify(results));
+      return res.send(results);
     });
   });
 });

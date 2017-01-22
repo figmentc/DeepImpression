@@ -470,11 +470,11 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     train_acc_list = []
     valid_acc_list = []
     num_train_cases = inputs_train.shape[0]
-    print("NUM TRAIN CASES", num_train_cases)
+    # print("NUM TRAIN CASES", num_train_cases)
     if batch_size == -1:
         batch_size = num_train_cases
     num_steps = int(np.ceil(num_train_cases / batch_size))
-    print("NUM STEPS", num_steps)
+    # print("NUM STEPS", num_steps)
 
     for epoch in range(num_epochs):
         np.random.shuffle(rnd_idx)
@@ -725,7 +725,7 @@ if __name__ == '__main__':
     if len(args) < 2:
         main()
     else:
-        print(args[1])
+        # print(args[1])
         file_path = args[1]
         img = imread(file_path).ravel()
         main(img)
