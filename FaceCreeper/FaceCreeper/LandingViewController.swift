@@ -85,19 +85,32 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch (indexPath.row){
         case 0:
             cell.imageView?.image = UIImage(named: "git")
+            if (id == 2){ // Farhan Samir
+                cell.NetworkLabel.text = "https://www.github.com/fsam95"
+            } else {
+                cell.NetworkLabel.text = "https://www.github.com"
+            }
             break
         case 1:
             cell.imageView?.image = UIImage(named: "facebook")
+            if (id == 2){ // Farhan Samir
+                cell.NetworkLabel.text = "https://www.facebook.com/farhan.samir.1"
+            } else {
+                cell.NetworkLabel.text = "https://www.facebook.com"
+            }
             break
         case 2:
             cell.imageView?.image = UIImage(named: "twitter")
+            if (id == 2){ // Farhan Samir
+                cell.NetworkLabel.text = "https://twitter.com/farhan_samir"
+            } else {
+                cell.NetworkLabel.text = "https://www.twitter.com"
+            }
             break
         default:
             return cell;
         }
         return cell
-        
-        
         
     }
     
