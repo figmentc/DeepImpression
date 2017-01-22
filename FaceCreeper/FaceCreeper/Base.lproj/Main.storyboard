@@ -251,7 +251,7 @@
         <!--LandingViewController-->
         <scene sceneID="LOv-hd-yRy">
             <objects>
-                <viewController title="LandingViewController" id="4zs-Sr-NRv" customClass="LandingViewController" customModule="FaceCreeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingViewController" title="LandingViewController" id="4zs-Sr-NRv" customClass="LandingViewController" customModule="FaceCreeper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="svO-eK-5N6"/>
                         <viewControllerLayoutGuide type="bottom" id="ZVP-aY-4W4"/>
