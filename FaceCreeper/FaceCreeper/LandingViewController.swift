@@ -13,6 +13,7 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var labelView: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var descrView: UILabel!
     var id = -1
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,27 +28,35 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         case -1:
             self.imageView.image = UIImage(named: "Melissa")
             labelView.text = "Melissa Ng"
+            descrView.text = "21, Female, Iron(FE) Designer, UX Research Assistant"
         case 0:
             self.imageView.image = UIImage(named: "Angie")
             labelView.text = "Angie Harmon"
+            descrView.text = "44, Female, Actress"
         case 1:
             self.imageView.image = UIImage(named: "Daniel")
             labelView.text = "Daniel Radcliffe"
+            descrView.text = "27, Male, Actor"
         case 2:
             self.imageView.image = UIImage(named: "Samir")
             labelView.text = "Farhan Samir"
+            descrView.text = "21, Male, Software Developer"
         case 3:
             self.imageView.image = UIImage(named: "Loraine")
             labelView.text = "Lorraine Bracco"
+            descrView.text = "62, Female, Actress"
         case 4:
             self.imageView.image = UIImage(named: "Michael")
             labelView.text = "Michael Varton"
+            descrView.text = "48, Male, Actor"
         case 5:
             self.imageView.image = UIImage(named: "Peri")
             labelView.text = "Peri Gilpin"
+            descrView.text = "55, Male, Actor"
         default:
             self.imageView.image = UIImage(named: "Melissa")
             labelView.text = "Melissa Ng"
+            descrView.text = "21, Female, Iron(FE) Designer, UX Research Assistant"
         }
         // Do any additional setup after loading the view.
     }
