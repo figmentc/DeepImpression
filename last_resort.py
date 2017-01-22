@@ -29,6 +29,7 @@ from os.path import sep
 from scipy.misc import imread
 from scipy.misc import imresize
 from random import shuffle
+import cPickle
 
 ##########################################################################
 ################################ MACROS ##################################
@@ -333,6 +334,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     #print one_hots(1, 6)
     #print one_hots(6, 6)
 
+    ## GET IMAGES AND TARGETS FOR IMAGE 1
     images1 = get_all_images(CROPPED_PATH + sep + ONE)
     plt.imshow(images1[0])
     plt.show()
@@ -346,8 +348,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image1_val_target = [y1] * 10
     image1_train_target = [y1] * len(image1_train)
     
-    print("IMAGE1 TARGET ", image1_train_target)
-    
+    ## GET IMAGES AND TARGETS FOR IMAGE 2
     images2 = get_all_images(CROPPED_PATH + sep + TWO)
     images2 = compress(images2)
     shuffle(images2)
@@ -360,8 +361,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image2_val_target = [y2] * 10
     image2_train_target = [y2] * len(image2_train)
     
-    print("IMAGE2 TARGET ", image2_train_target)
-
+    ## GET IMAGES AND TARGETS FOR IMAGE 3
     images3 = get_all_images(CROPPED_PATH + sep + THREE)
     images3 = compress(images3)
     shuffle(images3)
@@ -374,8 +374,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image3_val_target = [y3] * 10
     image3_train_target = [y3] * len(image3_train)
     
-    print("IMAGE3 TARGET ", image3_train_target)
-
+    ## GET IMAGES AND TARGETS FOR IMAGE 4
     images4 = get_all_images(CROPPED_PATH + sep + FOUR)
     images4 = compress(images4)
     shuffle(images4)
@@ -388,6 +387,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image4_val_target = [y4] * 10
     image4_train_target = [y4] * len(image4_train)
 
+    ## GET IMAGES AND TARGETS FOR IMAGE 5
     images5 = get_all_images(CROPPED_PATH + sep + FIVE)
     images5 = compress(images5)
     shuffle(images5)
@@ -400,6 +400,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     image5_val_target = [y5] * 10
     image5_train_target = [y5] * len(image5_train)
 
+    ## GET IMAGES AND TARGETS FOR IMAGE 6
     images6 = get_all_images(CROPPED_PATH + sep + SIX)
     images6 = compress(images6)
     shuffle(images6)
@@ -459,7 +460,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     #print(inputs_train.shape)
     #print(target_train)
 
-   # inputs_train, inputs_valid, inputs_test, target_train, target_valid, target_test = LoadData('../toronto_face.npz')
+    #inputs_train, inputs_valid, inputs_test, target_train, target_valid, target_test = LoadData('../toronto_face.npz')
     #print(target_train.shape)
     #raise(Exception, "Stop")
     rnd_idx = np.arange(inputs_train.shape[0])
@@ -469,9 +470,12 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     train_acc_list = []
     valid_acc_list = []
     num_train_cases = inputs_train.shape[0]
+    print("NUM TRAIN CASES", num_train_cases)
     if batch_size == -1:
         batch_size = num_train_cases
     num_steps = int(np.ceil(num_train_cases / batch_size))
+    print("NUM STEPS", num_steps)
+
     for epoch in range(num_epochs):
         np.random.shuffle(rnd_idx)
         #print(inputs_train.shape)
@@ -483,10 +487,10 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
             end = min(num_train_cases, (step + 1) * batch_size)
             x = inputs_train[start: end]
             t = target_train[start: end]
-
             var = forward(model, x)
+            
+        
             prediction = Softmax(var['y'])
-
             train_ce = -np.sum(t * np.log(prediction)) / x.shape[0]
             train_acc = (np.argmax(prediction, axis=1) ==
                          np.argmax(t, axis=1)).astype('float').mean()
@@ -605,75 +609,66 @@ def CheckGrad(model, forward, backward, name, x):
     np.testing.assert_almost_equal(grad_w[check_elem], grad_w_2[check_elem], decimal=3)
 
 
-def main():
+def main(file_name=None):
     """Trains a NN."""
+    if file_name is None:
+        #model_fname = 'nn_model.npz'
+        #stats_fname = 'nn_stats.npz'
+
+        # Hyper-parameters. Modify them if needed.
+        l_eps = [0.001, 0.01, 0.1, 0.5, 1.0]
+        l_momentum = [0, 0.5, 0.9]
+        l_batch_size = [10, 100, 500, 700, 1000]
+        l_num_hiddens = [[2, 6], [16, 32], [70, 100]]
+        
+        # default
+        num_hiddens = [16, 32]
+        eps = 0.0001
+        momentum = 0.01
+        num_epochs = 1200
+        batch_size = 100
+
+        # Input-output dimensions.
+        num_inputs = X_DIM
+        num_outputs = Y_DIM
+
+        # Initialize model.
+        model = InitNN(num_inputs, num_hiddens, num_outputs)
+
+        # Uncomment to reload trained model here.
+        # model = Load(model_fname)
+
+        # Train model.
+        stats = Train(model, NNForward, NNBackward, NNUpdate, eps,
+                      momentum, num_epochs, batch_size)
     
-    #model_fname = 'nn_model.npz'
-    #stats_fname = 'nn_stats.npz'
+    if file_name is not None:
+        ## After training, show me some images where the Network miss classifies
+        ## Using batch size of 1 on trained model.
+        #inputs_train, inputs_valid, inputs_test, target_train, target_valid, \
+        #target_test = LoadData('../toronto_face.npz')
 
-    # Hyper-parameters. Modify them if needed.
-    l_eps = [0.001, 0.01, 0.1, 0.5, 1.0]
-    l_momentum = [0, 0.5, 0.9]
-    l_batch_size = [10, 100, 500, 700, 1000]
-    l_num_hiddens = [[2, 6], [16, 32], [70, 100]]
-    
-    # default
-    num_hiddens = [16, 32]
-    eps = 0.0001
-    momentum = 0.01
-    num_epochs = 2000
-    batch_size = 100
+        #with open('<FILENAME>') as f:
+        #    model['W1'] = cPickle.load(f), name="model['W1']")
+        
+        model = Load('model_fname.npz')
+        # print(model)
+        
+        #print("TYPE" , model)
+        #print("MODEL: ", model['dE_db1'])
+        var = NNForward(model, file_name)
+        
+        #prediction = Softmax(var['y'])
+        #print(prediction)
 
-    # Input-output dimensions.
-    num_inputs = 1024 #X_DIM
-    num_outputs = 6 #Y_DIM
+        i = 0
+        for count in range(6):
+            if var['y'][count] > var['y'][i]:
+                i = count
 
-    # Initialize model.
-    model = InitNN(num_inputs, num_hiddens, num_outputs)
-
-    # Uncomment to reload trained model here.
-    # model = Load(model_fname)
-
-    """
-    # Check gradient implementation.
-    print('Checking gradients...')
-    x = np.random.rand(10, 48 * 48) * 0.1
-    CheckGrad(model, NNForward, NNBackward, 'W3', x)
-    CheckGrad(model, NNForward, NNBackward, 'b3', x)
-    CheckGrad(model, NNForward, NNBackward, 'W2', x)
-    CheckGrad(model, NNForward, NNBackward, 'b2', x)
-    CheckGrad(model, NNForward, NNBackward, 'W1', x)
-    CheckGrad(model, NNForward, NNBackward, 'b1', x)
-    """
-    
-    """
-    print("Visualizations of weights before training ...")
-    for i in range(num_hiddens[0]):
-        plt.clf()
-        plt.imshow(model['W1'].T[i].reshape(48, 48), cmap=plt.cm.gray)
-        plt.draw()
-        raw_input('Press Enter.')
-    """
-
-    # Train model.
-    stats = Train(model, NNForward, NNBackward, NNUpdate, eps,
-                  momentum, num_epochs, batch_size)
+        print(i)
 
     """
-    print("Visualizations of weights after training ...")
-    for i in range(num_hiddens[0]):
-        plt.clf()
-        plt.imshow(model['W1'].T[i].reshape(48, 48), cmap=plt.cm.gray)
-        plt.draw()
-        raw_input('Press Enter.')
-    """
-
-    """
-    ## After training, show me some images where the Network miss classifies
-    ## Using batch size of 1 on trained model.
-    inputs_train, inputs_valid, inputs_test, target_train, target_valid, \
-    target_test = LoadData('../toronto_face.npz')
-
     batch_size = 1
     rnd_idx = np.arange(inputs_test.shape[0])
     num_test_cases = inputs_test.shape[0]
@@ -705,17 +700,36 @@ def main():
                 print(train_acc)
                 raw_input('Press Enter.')
     """
-
-
-
+    model_fname = 'model_fname.npz'
+    stats_fname = 'stats_fname.npz'
     # Uncomment if you wish to save the model.
-    #Save(model_fname, model)
+    Save(model_fname, dict(model))
 
     # Uncomment if you wish to save the training statistics.
-    #Save(stats_fname, stats)
+    # Save(stats_fname, dict(stats))
+
+    """
+    with open('<FILENAME>') as f:
+        cPickle.dump(model['W1'].get_value(), f, pickle.HIGHEST_PROTOCOL)
+        cPickle.dump(model['W2'].get_value(), f, pickle.HIGHEST_PROTOCOL)
+        cPickle.dump(model['W3'].get_value(), f, pickle.HIGHEST_PROTOCOL)
+        cPickle.dump(model['b1'].get_value(), f, pickle.HIGHEST_PROTOCOL)
+        cPickle.dump(model['b2'].get_value(), f, pickle.HIGHEST_PROTOCOL)
+        cPickle.dump(model['b3'].get_value(), f, pickle.HIGHEST_PROTOCOL)
+    """
+
 
 if __name__ == '__main__':
-    main()
+    args = sys.argv
+    
+    if len(args) < 2:
+        main()
+    else:
+        print(args[1])
+        file_path = args[1]
+        img = imread(file_path).ravel()
+        main(img)
+
 
 
 """
