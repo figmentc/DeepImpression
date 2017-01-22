@@ -153,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stock" translatesAutoresizingMaskIntoConstraints="NO" id="gf6-RX-Ran">
-                                <rect key="frame" x="16" y="72" width="120" height="120"/>
+                                <rect key="frame" x="16" y="28" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gf6-RX-Ran" secondAttribute="height" multiplier="1:1" id="CzZ-eh-c9y"/>
                                     <constraint firstAttribute="width" constant="120" id="XgU-m6-ffr"/>
@@ -368,6 +368,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="vX6-IQ-MFn"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="descrView" destination="5ss-fZ-1Xh" id="i8E-gN-UZx"/>
                         <outlet property="imageView" destination="chg-Md-1AF" id="6KJ-gj-U1k"/>
                         <outlet property="labelView" destination="Kom-bi-0iA" id="6U5-bM-uIq"/>
                         <outlet property="tableView" destination="AMN-eT-mBi" id="bh1-nY-3SL"/>
