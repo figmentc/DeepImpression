@@ -161,15 +161,17 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
             indicator.layer.borderWidth = 2
             indicator.layer.borderColor = UIColor.red.cgColor
             previewImageView.addSubview(indicator)
-            UploadRequest(image:image)
+            UploadRequest(image:image, bounds: face.bounds, newBounds: newBounds)
 
             
         }
     }
     
-    func UploadRequest(image:UIImage)
+    func UploadRequest(image:UIImage, bounds: CGRect, newBounds: CGRect)
     {
-        let url = NSURL(string: "http://013bac77.ngrok.io/process")
+        let boundsString = String(describing: bounds.minX) + "," + String(describing: bounds.minY) + "," + String(describing: bounds.maxX) + "," + String(describing: bounds.maxY)
+        print(boundsString)
+        let url = NSURL(string: "https://bff31b7a.ngrok.io/process")
         
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "POST"
@@ -193,7 +195,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
         
         body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
         body.append("Content-Disposition:form-data; name=\"dimensions\"\r\n\r\n".data(using: String.Encoding.utf8)!)
-        body.append("Austin Was Here\r\n".data(using: String.Encoding.utf8)!)
+        body.append((boundsString+"\r\n").data(using: String.Encoding.utf8)!)
         
         
         
@@ -226,8 +228,20 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
             
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             
-            print(dataString)
+           
+            let indicator = UIView(frame: newBounds)
+            indicator.backgroundColor = UIColor.clear
+            indicator.layer.borderWidth = 2
+            indicator.layer.borderColor = UIColor.blue.cgColor
+            self.previewImageView.addSubview(indicator)
             
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            nextViewController.id  = Int((dataString?.intValue)!)
+        
+            self.present(nextViewController, animated:true, completion:nil)
+
         }
         
         print("FINISHED HTTP CALL")

@@ -10,11 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
-
+    var id = -1
      override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        print("ID: " + String(self.id))
         // Do any additional setup after loading the view, typically from a nib.
     }
 

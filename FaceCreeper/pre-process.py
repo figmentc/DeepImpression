@@ -2,17 +2,11 @@
 from random import shuffle
 # from PIL import Image, ImageEnhance
 from scipy.misc import imread
-from scipy.misc import imsave
+from scipy.misc import *
 from numpy import *
 import sys 
+import os 
 
-filepath = sys.argv[1]
-cropDim = sys.argv[2].split(',')
-im = imread(filepath)
-im = im[cropDim[0]:cropDim[2], cropDim[1]:cropDim[3]]
-im = imresize(im, [32,32])
-im = rgb2gray(im)
-imsave(filepath, im);
 
 def rgb2gray(rgb):
     '''Return the grayscale version of the RGB image rgb as a 2D numpy array
@@ -23,6 +17,28 @@ def rgb2gray(rgb):
     '''
     r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
     gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
+    return gray/255.
+
+filepath = sys.argv[1]
+os.rename(filepath, filepath+".png")
+im = array(imread(filepath+".png"))
+# print type(im)
+print(im)
+print(sys.argv[2])
+cropDim = map(int, map(float, sys.argv[2].split(',')))
+# print cropDim
+# print im
+# print im.shape
+# im = imresize(im, [32,32])
+im = rgb2gray(im)
+im = rot90(im, 3)
+im = im[cropDim[0]:cropDim[2], cropDim[1]:cropDim[3]]
+im = imresize(im, [32,32])
+
+
+imsave(filepath+".png", im);
+print filepath+'.png'
+
 
 
 

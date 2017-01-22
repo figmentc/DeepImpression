@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--NavController-->
         <scene sceneID="U6U-CE-aKY">
             <objects>
-                <navigationController id="4sd-ff-GzD" sceneMemberID="viewController">
+                <navigationController title="NavController" id="4sd-ff-GzD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jPk-Mo-31J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-3150" y="-619"/>
         </scene>
-        <!--Face Finder-->
+        <!--SearchTableViewController-->
         <scene sceneID="TPH-k5-bof">
             <objects>
-                <tableViewController id="9Oc-8U-xQx" customClass="SearchTableViewController" customModule="FaceCreeper" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="SearchTableViewController" id="9Oc-8U-xQx" customClass="SearchTableViewController" customModule="FaceCreeper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Lw-vh-kub">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,6 @@
                                     <outlet property="nameLabel" destination="9Q6-Tu-G4F" id="tSE-kD-0cY"/>
                                     <outlet property="percentageLabel" destination="jJJ-Lx-92g" id="2GZ-Bb-nGH"/>
                                     <outlet property="profileImageView" destination="U0h-Yx-NMU" id="y5j-09-PUq"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="6gv-k0-WR4"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTableSmallViewCell" rowHeight="72" id="26C-Uf-G3P" customClass="SearchTableSmallViewCell" customModule="FaceCreeper" customModuleProvider="target">
@@ -127,7 +126,6 @@
                                     <outlet property="nameLabel" destination="5Tb-kz-k1c" id="sDX-ZE-alb"/>
                                     <outlet property="percentageLabel" destination="GaS-3k-Fyf" id="MOs-bx-PDg"/>
                                     <outlet property="profileImageView" destination="8fy-Qr-8lg" id="V1b-w7-fFR"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="nHL-6S-vt4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -140,12 +138,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rb9-dh-OHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2117" y="-561"/>
+            <point key="canvasLocation" x="-2353" y="-612"/>
         </scene>
-        <!--Face Finder-->
+        <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FaceCreeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FaceCreeper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -248,12 +246,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1308.75" y="-560.91549295774644"/>
+            <point key="canvasLocation" x="-1530" y="-633"/>
         </scene>
-        <!--Face Finder-->
+        <!--LandingViewController-->
         <scene sceneID="LOv-hd-yRy">
             <objects>
-                <viewController id="4zs-Sr-NRv" customClass="LandingViewController" customModule="FaceCreeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="LandingViewController" id="4zs-Sr-NRv" customClass="LandingViewController" customModule="FaceCreeper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="svO-eK-5N6"/>
                         <viewControllerLayoutGuide type="bottom" id="ZVP-aY-4W4"/>
@@ -371,6 +369,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="chg-Md-1AF" id="6KJ-gj-U1k"/>
+                        <outlet property="labelView" destination="Kom-bi-0iA" id="6U5-bM-uIq"/>
                         <outlet property="tableView" destination="AMN-eT-mBi" id="bh1-nY-3SL"/>
                     </connections>
                 </viewController>
@@ -437,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9BW-X8-Rxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3998" y="-619"/>
+            <point key="canvasLocation" x="-3999" y="-633"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JsE-Z3-ag1">
@@ -460,7 +459,4 @@
         <image name=" " width="16" height="16"/>
         <image name="Stock" width="256" height="256"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="nHL-6S-vt4"/>
-    </inferredMetricsTieBreakers>
 </document>

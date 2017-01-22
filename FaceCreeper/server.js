@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 app.post('/process', type, function(req, res){
   console.log(req.file);
+  console.log(req.body.dimensions)
 
   var encoded_filename = req.file.filename;
   var path = 'upload/' + encoded_filename;
@@ -22,20 +23,22 @@ app.post('/process', type, function(req, res){
   var dimensions = req.body.dimensions;
 
   var crop_options = {
-    args: [dimensions, path]
+    args: [path, dimensions]
   };
 
   PythonShell.run('pre-process.py', crop_options, function(err, cropped_img){
+    console.log(cropped_img)
     if (err) throw err;
     console.log(cropped_img);
     var nn_options = {
       args: [cropped_img]
     }
-    PythonShell.run('.py', nn_options, function(err, results){
-      if (err) throw err;
-      console.log(results);
-      return res.send(JSON.stringify(results));
-    });
+    res.sendStatus(200)
+    // PythonShell.run('.py', nn_options, function(err, results){
+    //   if (err) throw err;
+    //   console.log(results);
+    //   return res.send(JSON.stringify(results));
+    // });
   });
 });
 app.listen(3000);

@@ -10,8 +10,10 @@ import UIKit
 
 class LandingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var labelView: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
+    var id = -1
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.clipsToBounds = true;
@@ -21,6 +23,31 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
+        switch (id){
+        case -1:
+            self.imageView.image = UIImage(named: "Melissa")
+            labelView.text = "Melissa Ng"
+        case 0:
+            self.imageView.image = UIImage(named: "Angie")
+            labelView.text = "Angie Harmon"
+        case 1:
+            self.imageView.image = UIImage(named: "Daniel")
+            labelView.text = "Daniel Radcliffe"
+        case 2:
+            self.imageView.image = UIImage(named: "Samir")
+            labelView.text = "Farhan Samir"
+        case 3:
+            self.imageView.image = UIImage(named: "Loraine")
+            labelView.text = "Lorraine Bracco"
+        case 4:
+            self.imageView.image = UIImage(named: "Michael")
+            labelView.text = "Michael Varton"
+        case 5:
+            self.imageView.image = UIImage(named: "Peri")
+            labelView
+        default:
+            self.imageView.image = UIImage(named: "Melissa")
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -58,8 +85,6 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             return cell;
         }
-        
-        
         return cell
         
         
