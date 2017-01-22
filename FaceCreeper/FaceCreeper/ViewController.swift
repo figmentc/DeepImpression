@@ -8,6 +8,8 @@
 
 import UIKit
 
+//
+//When you take a picture and look at someone else's account
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
 
@@ -31,7 +33,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 5;
-        
     }
     
     
@@ -39,7 +40,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NetworkTableViewCell", for: indexPath) as! NetworkTableViewCell
         cell.NetworkLabel.text = "/karpkarp"
-        
         return cell
         
         
