@@ -48,12 +48,15 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch (indexPath.row){
         case 0:
             cell.imageView?.image = UIImage(named: "git")
+            cell.NetworkLabel.text = "git_username"
             break
         case 1:
             cell.imageView?.image = UIImage(named: "facebook")
+            cell.NetworkLabel.text = "facebook_username"
             break
         case 2:
             cell.imageView?.image = UIImage(named: "twitter")
+            cell.NetworkLabel.text = "twitter_username"
             break
         default:
             return cell;

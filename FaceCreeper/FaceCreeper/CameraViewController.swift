@@ -12,6 +12,8 @@ import AVFoundation
 class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
 
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     var session: AVCaptureSession?
     var stillImageOutput: AVCapturePhotoOutput?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -108,6 +110,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
 //            }
             
         }
+        activityIndicator.startAnimating()
 
     }
     
@@ -224,13 +227,17 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate{
                 return
             }
             
-            let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) // Should contain top 5 matches or whatever
+            //Need to load dataString values on next screen (SearchTableViewController)
+            
+        
             
             print(dataString)
             
         }
         
         print("FINISHED HTTP CALL")
+        activityIndicator.stopAnimating()
         task.resume()
         
         
