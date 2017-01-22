@@ -459,7 +459,7 @@ def Train(model, forward, backward, update, eps, momentum, num_epochs,
     #print(inputs_train.shape)
     #print(target_train)
 
-    inputs_train, inputs_valid, inputs_test, target_train, target_valid, target_test = LoadData('../toronto_face.npz')
+   # inputs_train, inputs_valid, inputs_test, target_train, target_valid, target_test = LoadData('../toronto_face.npz')
     #print(target_train.shape)
     #raise(Exception, "Stop")
     rnd_idx = np.arange(inputs_train.shape[0])
@@ -619,14 +619,14 @@ def main():
     
     # default
     num_hiddens = [16, 32]
-    eps = 0.01
+    eps = 0.0001
     momentum = 0.01
-    num_epochs = 1000
+    num_epochs = 2000
     batch_size = 100
 
     # Input-output dimensions.
-    num_inputs = 784 #X_DIM
-    num_outputs = 7 #Y_DIM
+    num_inputs = 1024 #X_DIM
+    num_outputs = 6 #Y_DIM
 
     # Initialize model.
     model = InitNN(num_inputs, num_hiddens, num_outputs)
